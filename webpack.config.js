@@ -1,13 +1,18 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
-const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
+require("dotenv").config({ path: __dirname + "/.env" });
+const path = require("path");
 
 module.exports = {
   devtool: "source-map",
 
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
+  },
+
+  output: {
+    path: path.resolve(__dirname, "docs")
   },
 
   module: {
